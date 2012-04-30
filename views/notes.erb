@@ -1,0 +1,13 @@
+this is the notes pageaa
+
+<% content.each do |k,v|   %>
+	<h2>
+		<%= k %>
+	</h2>
+	<p>
+		<%= v['content'] %>
+	</p>
+	<p>
+		<% v['links'] %>
+	</p>
+<% end %>
