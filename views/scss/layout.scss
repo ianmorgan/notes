@@ -1,14 +1,105 @@
-@import 'bourbon/bourbon';
-
-
-#header {  
-  color: #FFF;  
-  padding: 15px 100px;  
-  font-size: 30px;  
-  font-weight: bold;  
-  @include linear-gradient(#777, #444);  
+@import 'bourbon/bourbon';body {
+font-family: $lucida-grande;
 }
 
-p {
-border:2px solid blue;
+/* 
+  see http://colorschemedesigner.com/#
+*/
+$primary1: #123EAB;
+$primary2: #2A4380;
+$primary3: #06246F;
+$primary4: #466FD5;
+$primary5: #6C8AD5;
+
+$primary1text: #FFF;
+$primary4text: #222;
+
+$comp1: #FFAB00;
+$comp2: #BF9030;
+$comp3: #A66F00;
+$comp4: #FFC040;
+$comp5: #FFC040;
+
+body {
+	background-color: #CCC;
 }
+
+#body{
+		background-color:#fff;
+		margin-top: 2em;
+		margin-left: 4em;
+		margin-right: 4em;
+		margin-bottom: 3em;
+		@include border-top-left-radius(10px);
+		@include border-bottom-right-radius(10px);		
+
+}
+
+
+#header {
+color: $primary4text;
+padding: 10px 50px;
+font-size: 25px;
+font-weight: bold;
+background-color: $primary4;
+@include border-top-left-radius(10px);
+@include border-bottom-right-radius(10px);
+}
+
+#about {
+	float:right;
+	width:15em;
+	background-color:$primary5;
+	padding:1em;	
+	@include border-top-left-radius(10px);
+	@include border-bottom-right-radius(10px);
+	
+	
+	h2 {
+	  color:$comp1;
+	  position:relative;
+	  top:-10px;
+	  margin-bottom:-10px;
+	}
+	
+	p{
+		font-size:0.9em;
+		font-weight:normal;
+	}
+	
+}
+#content {
+	margin: 20px 5em;
+
+	
+	table.topgrid {
+		width: 50em;
+		text-align: top;
+		
+		td {
+			vertical-align:top;
+		}
+		
+		span {
+			position:relative;
+			left:10px;
+			top:10px;
+			color: $primary1text;
+			background-color: $primary1;
+			padding-top:3px;
+			padding-bottom:3px;
+			padding-left:20px;
+			padding-right:100px;
+		}
+		
+		ul {
+			list-style: none;
+			
+			li {
+				
+		  }
+		}
+	}
+
+}
+
