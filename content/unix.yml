@@ -7,3 +7,11 @@ ln_command:
   links: www.example.com
 
 
+find_command:
+  title: find - The find link command.
+  content: |
+      Use the fidn command to: 
+        goes
+        here  
+  links: www.example.com
+
