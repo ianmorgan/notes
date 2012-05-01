@@ -1,0 +1,18 @@
+ln:
+  title: ln - The link command.
+  content: |
+    Creates a symbolic (soft) link
+    Basic syntax:
+      ln -s {target-filename} {symbolic-filename} 
+     
+  links: http://linux.about.com/od/commands/l/blcmdl1_ln.htm
+
+
+find:
+  title: find - The find link command.
+  content: |
+      Use the fidn command to: 
+        goes
+        here  
+  links: www.example.com
+

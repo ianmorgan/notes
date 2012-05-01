@@ -100,6 +100,37 @@ background-color: $primary4;
 		  }
 		}
 	}
+	
+	#notes {
+		h1 {
+			color:$primary3;
+		}
+	}
+	
+	
+	
+	#links {
+		float:right;
+		width:10em;
+		background-color:$primary5;
+		padding:1em;	
+		@include border-top-left-radius(10px);
+		@include border-bottom-right-radius(10px);
+		height:100;
+		margin-right:-3em;
+
+
+		a {
+		  color:$comp1;
+		}
+
+		p{
+			font-size:0.9em;
+			font-weight:normal;
+		}
+
+	}
+	
 
 }
 

@@ -17,11 +17,14 @@ get '/layout.css' do
   sass :layout 
 end
 
-get '/notes/:topic' do
-  
-  content = YAML::load_file ("content/#{params[:topic]}.yml")
+get '/notes/:topic/:category' do
+  content = YAML::load_file ("content/#{params[:topic]}/#{params[:category]}.yml")
   erb :notes, :locals => { :content => content }
+end
 
+get '/notes/:topic/:category/:note' do
+  content = YAML::load_file ("content/#{params[:topic]}/#{params[:category]}.yml")
+  erb :note, :locals => { :content => content[params[:note]] }
 end
 
 #see http://koffeinfrei.heroku.com/2012/03/24/sinatra-with-bourbon

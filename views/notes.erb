@@ -1,14 +1,20 @@
-this is the notes pageaa
 
-<p><%= foo('wibble') %></p>
-<% content.each do |k,v|   %>
-	<h2>
-		<%= k %>
-	</h2>
-	<p>
-		<%= v['content'] %>
-	</p>
-	<p>
-		<% v['links'] %>
-	</p>
-<% end %>
+	<div id="notes">
+		<div id="links">
+			<a href="/">Home page</a> 
+		</div>
+		<h1>
+			Notes for <%= params[:topic] %> <%= params[:category] %>			
+		</h1>
+		<% content.each do |k,v|   %>
+			<h2>
+				<%= notes_link(params,k,v['title']) %>
+			</h2>
+			<p>
+				<%= v['content'] %>
+			</p>
+			<p>
+				<% v['links'] %>
+			</p>
+		<% end %>
+	</div>
