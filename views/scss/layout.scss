@@ -107,6 +107,12 @@ background-color: $primary4;
 		}
 	}
 	
+	code {
+		background-color:#EEE;
+		padding:5px 10px;
+		@include border-radius(3px);
+	}
+	
 	
 	
 	#links {

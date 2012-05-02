@@ -4,8 +4,16 @@ ln - The link command.
 Creates a symbolic (soft) link.
 
 Basic syntax:
-  _ln -s {target-filename} {symbolic-filename}_ 
-   
+
+  `ln -s {target-filename} {symbolic-filename}`
+
+> this is 
+> a 
+> block quoye
+
+1. a 
+2. list
+  
 :links 
 http://linux.about.com/
 
@@ -13,7 +21,7 @@ http://linux.about.com/
 ::find
 find - The find link command.
 
-Use the fidn command to: 
+Use the find command to: 
         goes
         here  
 

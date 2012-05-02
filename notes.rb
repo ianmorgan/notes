@@ -7,7 +7,8 @@ require_relative 'helpers'
 helpers NotesHelpers
 
 get '/' do
-  erb :index
+  topics = YAML::load_file('content/topics.yml')['topics']
+  erb :index, :locals => {:topics => topics }
 end
 
 get '/hi' do 

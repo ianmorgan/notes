@@ -4,7 +4,7 @@
 			<a href="/">Home page</a> 
 		</div>
 		<h1>
-			Notes for <%= params[:topic] %> <%= params[:category] %>			
+			Notes for <%= params[:topic].capitalize %> / <%= params[:category].capitalize %>			
 		</h1>
 		<% content.each do |k,v|   %>
 			<h2>

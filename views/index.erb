@@ -11,40 +11,19 @@
 	
 </div>
 <table class="topgrid">
-	
+	<% topics.each do |k,v| %>
 	<tr>
 		<td>
-			<span>Unix</span>
+			<span><%= k  %></span>
 			<ul>
-				<li><a href="/notes/unix/commands">Commands</a></li>
-				<li>Ubuntu</li>
-				<li>OSX</li>
+				<% v.each do |topic| %>
+					<li><a href="<%="/notes/#{k.downcase}/#{topic.downcase}"%>"><%="#{topic}"%></a></li>
+				<%  end  %>
 			</ul>
 		</td>
-		<td>
-			<span>Ruby</span>
-				<ul>
-					<li>Rails</li>
-					<li>Sinatra</li>
-					<li>Language</li>
-				</ul>
-			
-		</td>
 	</tr>
-
-	<tr>
-		<td>
-			<span>Java</span> 
-					<ul>
-						<li>Spring</li>
-						<li>Hibernate</li>
-						<li>Language</li>
-					</ul>
-		</td>
-		<td>
-			<span>HTML</span>
-		</td>
-	</tr>
+	
+	<% end  %>
 	
 	
 </table>
