@@ -4,10 +4,10 @@
 		<a href="/">Home page</a> 
 	</div>
 	<h1>
-		<%= content['title'] %> 		
+		<%= content[:title] %> 		
 	</h1>
 	<p>
-		<%= content['content'] %>
+		<%= markdown(content[:content]) %>
 	</p>
 
 </div>

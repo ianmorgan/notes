@@ -8,13 +8,13 @@
 		</h1>
 		<% content.each do |k,v|   %>
 			<h2>
-				<%= notes_link(params,k,v['title']) %>
+				<%= notes_link(params,k,v[:title]) %>
 			</h2>
 			<p>
-				<%= v['content'] %>
+				<%= v[:content] %>
 			</p>
 			<p>
-				<% v['links'] %>
+				<% v[:links] %>
 			</p>
 		<% end %>
 	</div>

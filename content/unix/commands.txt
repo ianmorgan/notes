@@ -1,0 +1,21 @@
+::ln
+ln - The link command.
+
+Creates a symbolic (soft) link.
+
+Basic syntax:
+  _ln -s {target-filename} {symbolic-filename}_ 
+   
+:links 
+http://linux.about.com/
+
+
+::find
+find - The find link command.
+
+Use the fidn command to: 
+        goes
+        here  
+
+:links 
+www.example.com

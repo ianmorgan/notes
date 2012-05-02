@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'erb'
 require 'yaml'
+require 'bluecloth'
 require_relative 'helpers'
 
 helpers NotesHelpers
@@ -18,13 +19,13 @@ get '/layout.css' do
 end
 
 get '/notes/:topic/:category' do
-  content = YAML::load_file ("content/#{params[:topic]}/#{params[:category]}.yml")
+  content = load_content("content/#{params[:topic]}/#{params[:category]}.txt")
   erb :notes, :locals => { :content => content }
 end
 
 get '/notes/:topic/:category/:note' do
-  content = YAML::load_file ("content/#{params[:topic]}/#{params[:category]}.yml")
-  erb :note, :locals => { :content => content[params[:note]] }
+  content = load_content("content/#{params[:topic]}/#{params[:category]}.txt")
+  erb :note, :locals => { :content => content[params[:note].to_sym] }
 end
 
 #see http://koffeinfrei.heroku.com/2012/03/24/sinatra-with-bourbon
