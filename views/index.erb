@@ -10,20 +10,22 @@
 	</p>
 	
 </div>
+
 <table class="topgrid">
-	<% topics.each do |k,v| %>
+<% grid_keys.each do |row| %>
 	<tr>
-		<td>
-			<span><%= k  %></span>
-			<ul>
-				<% v.each do |topic| %>
-					<li><a href="<%="/notes/#{k.downcase}/#{topic.downcase}"%>"><%="#{topic}"%></a></li>
-				<%  end  %>
-			</ul>
-		</td>
+		<% row.each do |col| %>
+			<td>
+				<span><%= col  %></span>
+				<% topic = topics[col] %>
+				<ul>
+					<% topic.each do |category| %>
+						<li><a href="<%="/notes/#{col.downcase}/#{category.downcase}"%>"><%="#{category}"%></a></li>
+					<%  end  %>
+				</ul>
+			</td>
+		<% end  %>
+		
 	</tr>
-	
-	<% end  %>
-	
-	
+<% end %>
 </table>

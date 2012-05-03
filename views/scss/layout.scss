@@ -14,6 +14,8 @@ $primary5: #6C8AD5;
 $primary1text: #FFF;
 $primary4text: #222;
 
+$normaltext: darken($primary4,30%);
+
 $comp1: #FFAB00;
 $comp2: #BF9030;
 $comp3: #A66F00;
@@ -37,13 +39,24 @@ body {
 
 
 #header {
-color: $primary4text;
-padding: 10px 50px;
-font-size: 25px;
-font-weight: bold;
-background-color: $primary4;
-@include border-top-left-radius(10px);
-@include border-bottom-right-radius(10px);
+	color: $primary4text;
+	padding: 10px 50px;
+	background-color: $primary4;
+	@include border-top-left-radius(10px);
+	@include border-bottom-right-radius(0px);
+
+	h1 {
+		margin-top: -3px;
+		font-size: 25px;
+		margin-bottom: -3px;
+		
+		span {
+			border-bottom: 1px solid $comp1;
+			color: #DDD;
+			font-weight:thin;
+		}
+	}
+
 }
 
 #about {
@@ -73,7 +86,7 @@ background-color: $primary4;
 
 	
 	table.topgrid {
-		width: 50em;
+		width: 35em;
 		text-align: top;
 		
 		td {
@@ -90,14 +103,26 @@ background-color: $primary4;
 			padding-bottom:3px;
 			padding-left:20px;
 			padding-right:100px;
+			@include border-radius(3px);
 		}
 		
 		ul {
 			list-style: none;
+			margin-left:-10px;
 			
-			li {
-				
-		  }
+			a {
+					color: $normaltext;
+					font-size:90%;
+					padding:3px 5px;
+					text-decoration:none;
+			}
+			
+			
+			a:hover   {
+				font-weight:bold;
+				background-color:$comp4;
+			}
+			
 		}
 	}
 	

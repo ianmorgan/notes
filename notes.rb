@@ -8,7 +8,22 @@ helpers NotesHelpers
 
 get '/' do
   topics = YAML::load_file('content/topics.yml')['topics']
-  erb :index, :locals => {:topics => topics }
+  
+  # convert to 2 D array 
+  keys = topics.each_key.collect{|k|k}.sort
+  grid_keys = []
+  (0..keys.size-1).each do |index|
+    if (index % 2 == 0)
+      @row = []
+      grid_keys.push @row
+      @row[0] = keys[index]
+    else
+      @row[1] = keys[index]
+    end
+  end
+  
+  
+  erb :index, :locals => {:grid_keys=> grid_keys , :topics => topics }
 end
 
 get '/hi' do 
