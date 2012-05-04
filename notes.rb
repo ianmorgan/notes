@@ -22,12 +22,11 @@ get '/' do
     end
   end
   
-  
   erb :index, :locals => {:grid_keys=> grid_keys , :topics => topics }
 end
 
-get '/hi' do 
-  'hello world'
+get '/about' do 
+  erb :about
 end
 
 get '/layout.css' do 

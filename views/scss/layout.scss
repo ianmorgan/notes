@@ -24,6 +24,7 @@ $comp5: #FFC040;
 
 body {
 	background-color: #CCC;
+	color:$normaltext;
 }
 
 #body{
@@ -126,9 +127,26 @@ body {
 		}
 	}
 	
+	h2 {
+			color:$primary1;
+			font-size:1.2em;
+			span.topic {
+					color: $primary1text;
+					background-color: $primary1;
+					padding-top:3px;
+					padding-bottom:3px;
+					padding-left:20px;
+					padding-right:20px;
+					@include border-radius(3px);
+			
+			} 
+	}
+	
 	#notes {
-		h1 {
+		h2 {
 			color:$primary3;
+			
+			
 		}
 	}
 	
@@ -138,30 +156,35 @@ body {
 		@include border-radius(3px);
 	}
 	
+}
+
+
+#links {
+	background-color:$comp1;
+	padding-top:3px;
+	padding-bottom:3px;
 	
-	
-	#links {
-		float:right;
-		width:10em;
-		background-color:$primary5;
-		padding:1em;	
-		@include border-top-left-radius(10px);
-		@include border-bottom-right-radius(10px);
-		height:100;
-		margin-right:-3em;
-
-
-		a {
-		  color:$comp1;
-		}
-
-		p{
-			font-size:0.9em;
-			font-weight:normal;
-		}
-
+	a {
+	  color:$normaltext;
+	  padding-left:0.5em;
+	  margin-left:0.5em;
+	  font-size:0.8em;
+	  text-decoration:none;
+	  border-left: 1px solid $normaltext;
 	}
 	
+	a:hover   {
+		font-weight:bold;
+		color:#EEE;
+		background-color:darken($comp1,10%);
+		
+	}
+	
+	a.right {
+		float:right;
+		margin-right:0.5em;
+		
+	}
 
 }
 

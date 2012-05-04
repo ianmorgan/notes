@@ -1,8 +1,19 @@
 module NotesHelpers
   def foo(name) "#{name}foo" 
-  end  
+  end
+    
+  #
+  # Builds a link to a given note
+  #
   def notes_link(params, key, title)
     "<a href=\"/notes/#{params[:topic]}/#{params[:category]}/#{key}\">#{title}</a>"
+  end  
+
+  #
+  # Builds a link to a given topic and category
+  #
+  def category_link(params)
+    "<a href=\"/notes/#{params[:topic]}/#{params[:category]}\">#{params[:topic].capitalize} #{params[:category].capitalize}</a>"
   end  
   
   

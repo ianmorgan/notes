@@ -1,12 +1,12 @@
-
+<div id="links">
+	<a href="/">Home page</a>   <a class="right" href="/about">About</a> 
+</div>
+<div id="content">
 	<div id="notes">
-		<div id="links">
-			<a href="/">Home page</a> 
-		</div>
-		<h1>
-			Notes for <%= params[:topic].capitalize %> / <%= params[:category].capitalize %>			
-		</h1>
-		<% content.each do |k,v|   %>
+		<h2>
+		   <span class="topic"><%= params[:topic].capitalize %></span> <span class="category"><%= params[:category].capitalize %></span>			
+		</h2>
+		<% content.each do |k,v|  %>
 			<h2>
 				<%= notes_link(params,k,v[:title]) %>
 			</h2>
@@ -18,3 +18,4 @@
 			</p>
 		<% end %>
 	</div>
+</div>
