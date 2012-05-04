@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'erb'
 require 'yaml'
-require 'bluecloth'
+require 'kramdown'
 require_relative 'helpers'
 
 helpers NotesHelpers
