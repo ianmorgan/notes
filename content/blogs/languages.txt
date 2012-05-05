@@ -2,7 +2,7 @@
 Thoughts on type systems
 
 I was asked to answer some questions about type systems for a job application. I though they were 
-good questions that it was worth keeping the answers to:
+good questions and  it was worth keeping the answers:
 
 
 What is the purpose of TDD?
