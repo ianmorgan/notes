@@ -7,15 +7,17 @@
 		   <span class="topic"><%= params[:topic].capitalize %></span> <span class="category"><%= params[:category].capitalize %></span>			
 		</h2>
 		<% content.each do |k,v|  %>
+			<div class="listitem"><div class="content">
 			<h2>
 				<%= notes_link(params,k,v[:title]) %>
 			</h2>
 			<p>
-				<%= v[:content] %>
+				<%= markdown(v[:content][0..200]).shortened_html %>
 			</p>
 			<p>
 				<% v[:links] %>
 			</p>
+			</div></div>
 		<% end %>
 	</div>
 </div>

@@ -3,6 +3,7 @@ require 'erb'
 require 'yaml'
 require 'kramdown'
 require_relative 'helpers'
+require_relative 'mixins'
 
 helpers NotesHelpers
 

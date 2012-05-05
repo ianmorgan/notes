@@ -127,6 +127,11 @@ body {
 		}
 	}
 	
+	h1 {
+		color:$primary3;
+		font-size:1.5em;
+	}
+	
 	h2 {
 			color:$primary1;
 			font-size:1.2em;
@@ -145,6 +150,60 @@ body {
 	#notes {
 		h2 {
 			color:$primary3;
+		}
+		a{
+			color:darken($primary3,5%);
+			text-decoration:none;
+		}
+		padding-bottom:10px;
+		width:70%;
+		div.listitem {
+			background-color:lighten($primary5,30%);
+			@include border-radius(3px);
+			div.content{
+				padding:5px;
+				margin-bottom:8px;
+				h2{
+					margin-top:0px;
+					margin-bottom:0px;
+				}
+				p {
+					font-size:90%;
+					margin-top:5px;
+					margin-bottom:5px;
+				}
+			}
+		}
+		div.listitem:hover{
+			background-color:lighten($primary5,20%);
+		}
+	}
+	
+	#note {
+		h1 {
+			text-decoration:underline;
+		}
+		padding-bottom:10px;
+		width:70%;
+		div.listitem {
+			background-color:lighten($primary5,30%);
+			@include border-radius(3px);
+			div.content{
+				padding:5px;
+				margin-bottom:8px;
+				h2{
+					margin-top:0px;
+					margin-bottom:0px;
+				}
+				p {
+					font-size:90%;
+					margin-top:5px;
+					margin-bottom:5px;
+				}
+			}
+		}
+		div.listitem:hover{
+			background-color:lighten($primary5,20%);
 		}
 	}
 	
