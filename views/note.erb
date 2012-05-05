@@ -9,6 +9,12 @@
 	<p>
 		<%= markdown(content[:content]) %>
 	</p>
+	<h2>See also:</h2>
+	<ul>
+		<% content[:links].each do | link| %>
+			<li><a href=" <%= link  %> "><%= link  %></a>
+		<% end %>
+	</ul>
 
 </div>
 <div id="content">

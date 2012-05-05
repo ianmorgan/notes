@@ -33,10 +33,24 @@ module NotesHelpers
     
     # parse 2 - now decode the content block 
     results.each do |k,v| 
+      # title
       parsed_content = Hash.new
       parsed_content[:title] = v[0].strip
+    
+      parsed_content[:content] = ""
+      parsed_content[:links] = []
+      found_links = false
+      
       v.shift
-      parsed_content[:content] = v.join('')
+      v.each do |line|
+        if line.start_with? (':links') 
+          found_links = true
+        elsif !found_links
+            parsed_content[:content] << line  
+        else
+            parsed_content[:links] << line.strip if line.strip.length > 0        
+        end
+      end
       results[k] = parsed_content
     end  
     
