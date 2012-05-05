@@ -1,0 +1,65 @@
+::typesystems
+Thoughts on type systems
+
+I was asked to answer some questions about type systems for a job application. I though they were 
+good questions that it was worth keeping the answers to:
+
+
+What is the purpose of TDD?
+---------------------------
+It builds in quality, so quality becomes an intrinsic part of both the processes and the
+code base.
+
+How does TDD affect the design of a system?
+------------------------------------------- 
+To test well, components/objects need to have clearly defined purposes and minimal interaction, often
+referred to as cohesion and coupling, so TDD leads to designs with high cohesion and low coupling.
+Controlling the lifecycle of objects is important so mocks (I'm using this in its most general term)
+can be substituted. In Java, with no closures to control scope, a very static type system and many
+closed classes, the DI pattern is the de-facto solution. Lastly, a proportion of the tests will need
+state. In many system that means setting up fairly complex domain models, so TDD tends to drive cleaner
+domain models, though from my experience BDD is better at this.
+
+Can refactoring reduce the risk of changing code? 
+-------------------------------------------------
+There tend to be two types of refactoring. The small, incremental, refactoring which XP encourages that
+reduce risk by keeping the code base "in shape" and minimise the build up of technical deb. Provided
+tests and coverage are good enough, TDD is excellent at this. It gives quick feedback of problems and
+the "courage to change". The second is the larger, change the design, style refactoring that can happen
+if the technical debt does build up or thee is significant shift in requirements. In this case TDD is
+useful, but probably not enough alone.
+
+What is a type system? 
+---------------------- 
+A way for the compiler and possibly runtime to understand the set of behaviours associated with a class
+or data structure.
+
+What is a type system for? 
+-------------------------- 
+A number of purposes. They add clarity and allow the compiler to verify some of the program logic. They
+also allow the compiler to optimise storage and access. In early languages they were important as
+computing power was so just limited it was essential to verify and optimise as much as possible
+upfront. In more modern languages (e.g. Java) the type information lives on as runtime metadata,
+allowing for more dyanamic applications. And they provide the information to power modern IDEs.
+
+Why do different programming languages have different kinds of type systems?
+----------------------------------------------------------------------------
+This could be an essay in it own right. Essentially any type system is a trade off between early
+verification, structured code and performance versus flexibility and expressiveness. And once you bring
+OO into the mix, there are a whole host of OO "purity" concerns such as multiple inheritance that
+significantly increase the complexity of the type system.
+
+How can you use a type system to help you program?
+--------------------------------------------------
+Appreciate the strengths and weaknesses of the type system of the language and code to its strengths.
+Accept that any type system only works within the language, and stops working once you get to XML, SQL
+etc. All those fancy typesafe mapping layers that J2EE loves are ultimately just shifting the origin of
+the stacktrace when things go wrong (_personal scars here, certainly hit the limits of the Java type
+system on my last project_). Beware that type systems can create a silo mentality whereby the same
+common concepts get expressed differently (accountNumber, accntNum, accNo, ... ). I sometimes feel
+there is a strange circularity here: strong type systems are good at catching all those minor
+mismatches but on larger projects lead to ways of working that generate many of these minor mismatches.
+And finally, consider a language and type system that suits the problem domain. For example, Ruby and
+Groovy with their very dynamic nature and "duck" typing can be excellent at web application but not
+heavy weight back end processing.
+
