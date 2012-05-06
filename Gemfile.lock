@@ -34,5 +34,6 @@ DEPENDENCIES
   bourbon (= 1.4.0)
   pygments.rb (= 0.2.12)
   redcarpet
+  rubypython (= 0.5.3)
   sinatra (= 1.3.2)
   thin

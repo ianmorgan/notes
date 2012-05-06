@@ -11,6 +11,13 @@ require_relative 'mixins'
 
 helpers NotesHelpers
 
+# does anyone know better method to check that we're on heroku?
+#if ENV['HOME'] == '/app'
+  puts "*** Starting up Ruby Python *** "
+  require 'rubypython'
+  RubyPython.start(:python_exe => "python2.6")
+#end
+
 get '/' do
   topics = YAML::load_file('content/topics.yml')['topics']
   
