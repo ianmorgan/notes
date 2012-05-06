@@ -20,7 +20,8 @@ helpers NotesHelpers
 #if ENV['HOME'] == '/app'
   puts "*** Starting up Ruby Python *** "
   require 'rubypython'
-  RubyPython.start(:python_exe => "python2.6")
+  #RubyPython.start(:python_exe => "python2.6")
+   RubyPython.start()
 #end
 
 get '/' do
