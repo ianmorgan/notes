@@ -9,5 +9,10 @@ code
 ``` java
 class Test{
 	void foo(){;}
+	
+	void bar(){
+		// does nothing !
+		;
+	}
 }
 ```
