@@ -1,14 +1,19 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    albino (1.3.3)
+      posix-spawn (>= 0.3.6)
     bourbon (1.4.0)
       sass (>= 3.1)
     daemons (1.1.8)
     eventmachine (0.12.10)
     kramdown (0.13.5)
+    nokogiri (1.5.2)
+    posix-spawn (0.3.6)
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
+    redcarpet (2.1.1)
     sass (3.1.15)
     sinatra (1.3.2)
       rack (~> 1.3, >= 1.3.6)
@@ -24,7 +29,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  albino
   bourbon (= 1.4.0)
   kramdown (= 0.13.5)
+  nokogiri
+  redcarpet
   sinatra (= 1.3.2)
   thin

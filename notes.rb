@@ -1,7 +1,10 @@
 require 'sinatra'
 require 'erb'
 require 'yaml'
-require 'kramdown'
+#require 'kramdown'
+require 'redcarpet'
+require 'albino'
+require 'nokogiri'
 require_relative 'helpers'
 require_relative 'mixins'
 
