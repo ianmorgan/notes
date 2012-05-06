@@ -67,6 +67,17 @@ heavy weight back end processing.
 ::javaconcurrency
 Notes on Java Concurrency
 
+``` java
+class Test{
+	void foo(){;}
+	
+	void bar(){
+		// does nothing !
+		;
+	}
+}
+```
+
 Threads 
 -------
 In Java, if you want to do more than one thing, you need a thread. The simplest case is just to subclass Thread and
@@ -75,7 +86,7 @@ then call run. e.g.
 	public class HelloThread extends Thread {
 
 		public void run() {
-			System.out.println("Hello from a threadx!");
+			System.out.println("Hello from a thread!");
 		}
 
 	}
@@ -89,6 +100,7 @@ then call run. e.g.
 >
 > }
 
+
 ```
 <pre>this should be 
 a block
@@ -98,10 +110,10 @@ class java {</pre>
 ```
 
 
-```java
+``` java
 public class HelloThread extends Thread {
 	public void run() {
-		System.out.println("Hello from a thread!");
+		System.out.println("zHello from a thread!");
 	}
 }
 ```
@@ -112,9 +124,37 @@ public class HelloThread extends Thread {
 public class HelloThread extends Thread {
 
 	public void run() {
-		System.out.println("Hello from a thread!");
+		System.out.println("vHello from a thread!");
 	}
 }
 ```
 
+
+``` java
+class Test{
+	void foo(){;}
+	
+	void bar(){
+		// does nothing !
+		;
+	}
+}
+```
+
+
+::markdowntest
+testing markdown
+
+A java code block
+
+``` java
+class Test{
+	void foo(){;}
+	
+	void bar(){
+		// does NOTHING  !
+		;
+	}
+}
+```
 
