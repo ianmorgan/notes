@@ -7,8 +7,12 @@ require 'redcarpet'
 #require 'albino'
 #require 'nokogiri'
 require 'pygments.rb'
-require_relative 'helpers'
-require_relative 'mixins'
+#require_relative 'helpers'
+#require_relative 'mixins'
+
+require File.join(File.dirname(__FILE__), 'helpers')
+require File.join(File.dirname(__FILE__), 'mixins')
+
 
 helpers NotesHelpers
 
