@@ -1,0 +1,109 @@
+::threads
+Creating threads
+
+In Java, if you want to do more than one thing, you need a thread. The simplest case is just to subclass Thread and override the `run()` method. Then to start the thread, just instantiate a new instance and call `start()`.
+
+``` java
+public class HelloThread extends Thread {
+	@Override
+	public void run() {
+		System.out.println("Hello from a thread!");
+	}
+}
+
+// start the thread
+new HelloThread().start();
+```
+More flexible is just to implement the 'Runnable' interface.
+
+``` java
+public class HelloRunnable implements Runnable {
+
+	public void run() {
+		System.out.println("Hello from a runnable class!");
+	}
+
+}
+
+// start a new thread with the runnable class
+(new Thread(new HelloRunnable())).start();
+``` 
+
+A third choice is to use an [Executor](executor), which is similar to the above but can also provide scheduling, callbacks thread pooling and other goodies. 
+
+``` java
+new ThreadPoolExecutor(5, 10, 60, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(10))
+			.execute(new HelloRunnable());
+``` 
+
+:links
+http://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html
+
+::pausing
+Pausing (sleeping) threads
+
+If a thread has nothing to do, it can be paused by calling the `sleep()` method. The method throws an `InterruptedException` in case another thread needs to wake it from its sleep.
+
+``` java
+public class BackgroundThread extends Thread {
+
+	@Override
+	public void run() {
+		while (true) {
+			System.out.println(new Date());
+			try {
+				sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+}
+```
+
+::interrupting
+Interrupting threads 
+
+Other threads may interrupt at any time. Typically this signals that the thread should stop processing. There are two scenarios.
+
+Interrupted Exception
+---------------------
+The thread has called a method that throws `InterruptedException`. This is the simple case, the thread merely catches the 
+exception and decides what to do, which is usually just exit.
+
+``` java
+try {
+	sleep(60*60*1000);
+} catch (InterruptedException e) {
+	// sleep has be interrupted
+	return ;
+}
+```
+
+Checking the interrupted flag
+-----------------------------
+If the thread is stuck in some heavy computation it should periodically check the status of the interrupt flag. 
+
+``` java
+for (int i : getInputs() ) {
+    aBigCalculation(i);
+    if (Thread.interrupted()) {
+        // We've been interrupted: no more crunching.
+        return;
+    }
+}
+```
+_Note_: It is often better just to convert this to an `InterruptedException`. 
+
+``` java
+if (Thread.interrupted()) {
+    throw new InterruptedException();
+}
+```
+
+
+::executor 
+Using an Executor to run threads
+
+Notes to be completed. [See java tutorial](http://docs.oracle.com/javase/tutorial/essential/concurrency/executors.html). 
+

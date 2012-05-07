@@ -6,6 +6,7 @@ topics:
     
   Java:
     - Language
+    - Concurrency
     - Spring
     - Hibernate
     

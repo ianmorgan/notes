@@ -4,7 +4,7 @@ class String
     # A hacky way of stripping down html to a little
     # snippet for display in lists and summaries.
     #
-    def shortened_html(len = 80)
+    def shortened_html(len = 100)
       stripped = self.gsub(/<\/?[^>]*>/, "")
       if stripped.length < len -4 
         stripped

@@ -2,27 +2,15 @@ require 'rubygems'
 require 'sinatra'
 require 'erb'
 require 'yaml'
-#require 'kramdown'
 require 'redcarpet'
-#require 'albino'
-#require 'nokogiri'
 require 'pygments.rb'
-#require_relative 'helpers'
-#require_relative 'mixins'
+require 'rubypython'
 
 require File.join(File.dirname(__FILE__), 'helpers')
 require File.join(File.dirname(__FILE__), 'mixins')
 
-
 helpers NotesHelpers
-
-# does anyone know better method to check that we're on heroku?
-#if ENV['HOME'] == '/app'
-  puts "*** Starting up Ruby Python *** "
-  require 'rubypython'
-  #RubyPython.start(:python_exe => "python2.6")
-   RubyPython.start()
-#end
+RubyPython.start()
 
 get '/' do
   topics = YAML::load_file('content/topics.yml')['topics']
