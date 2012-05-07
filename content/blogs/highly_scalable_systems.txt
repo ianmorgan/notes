@@ -1,0 +1,25 @@
+::disruptor 
+The Disruptor 
+
+The [Disruptor](http://code.google.com/p/disruptor/) is an open source framework written by the team at [LMAX](http://www.lmax.com/). 
+
+It processes millions of messages by keeping the design very simple. Essentially it relies upon the locking primitives available within the CPU (search for Compare and Swap or CAS) to ensure atomic read/writes with minimal overheads. 
+
+Below are some good links about its design
+
+* http://mechanitis.blogspot.co.uk/2011/07/dissecting-disruptor-why-its-so-fast.html
+* http://martinfowler.com/articles/lmax.html
+
+
+::cqrs
+Command and Query Responsibility Segregation 
+
+The CQRS pattern is a simple architectural pattern for splitting input (commands) from the query. The basic premises is that they are two very different operations which traditionally tends to be handled be a single model
+
+Its a simple idea with some traction. 
+
+:links
+http://martinfowler.com/bliki/CQRS.html
+http://codebetter.com/gregyoung/2010/02/16/cqrs-task-based-uis-event-sourcing-agh/ 
+
+

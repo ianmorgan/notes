@@ -24,7 +24,7 @@
 				<% topic = topics[col] %>
 				<ul>
 					<% topic.each do |category| %>
-						<li><a href="<%="/notes/#{col.downcase}/#{category.downcase}"%>"><%="#{category}"%></a></li>
+						<li><a href="<%="/notes/#{col.underscore}/#{category.underscore}"%>"><%="#{category}"%></a></li>
 					<%  end  %>
 				</ul>
 			</td>

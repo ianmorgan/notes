@@ -40,7 +40,7 @@ new ThreadPoolExecutor(5, 10, 60, TimeUnit.SECONDS, new ArrayBlockingQueue<Runna
 http://docs.oracle.com/javase/tutorial/essential/concurrency/runthread.html
 
 ::pausing
-Pausing (sleeping) threads
+Pausing (sleeping and waiting) threads
 
 If a thread has nothing to do, it can be paused by calling the `sleep()` method. The method throws an `InterruptedException` in case another thread needs to wake it from its sleep.
 
@@ -61,6 +61,33 @@ public class BackgroundThread extends Thread {
 }
 ```
 
+If the thread needs to pause indefinitely until another condition is satisfied, then its better to use `wait()`
+
+``` java 
+public synchronized int waitForResult() {
+    // This guard only loops once for each special event, which may not
+    // be the event we're waiting for.
+    while(this.result == 0) {
+        try {
+            wait();
+        } catch (InterruptedException e) {}
+    }
+    return result;
+}
+
+```
+
+This needs something else to set the result and wakeup the the thread.
+
+``` java
+public synchronized notifyResult(int newResult) {
+    this.result = newResult;
+    notifyAll();
+}
+``` 
+
+_Note_: `notifyAll()` will wake up all sleeping threads, so the thread that is waiting must always check that its condition has been satisfied. There is a alternative, `notify()` but as this doesn't allow the thread to be specified it's really only relevant for applications with a large number of identical threads.
+
 ::interrupting
 Interrupting threads 
 
@@ -68,8 +95,7 @@ Other threads may interrupt at any time. Typically this signals that the thread 
 
 Interrupted Exception
 ---------------------
-The thread has called a method that throws `InterruptedException`. This is the simple case, the thread merely catches the 
-exception and decides what to do, which is usually just exit.
+The thread has called a method that throws `InterruptedException`. This is the simple case, the thread merely catches the exception and decides what to do, which is usually just exit.
 
 ``` java
 try {
@@ -88,7 +114,7 @@ If the thread is stuck in some heavy computation it should periodically check th
 for (int i : getInputs() ) {
     aBigCalculation(i);
     if (Thread.interrupted()) {
-        // We've been interrupted: no more crunching.
+        // We've been interrupted: stop crunching numbers.
         return;
     }
 }

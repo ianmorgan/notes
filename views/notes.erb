@@ -4,7 +4,7 @@
 <div id="content">
 	<div id="notes">
 		<h2>
-		   <span class="topic"><%= params[:topic].capitalize %></span> <span class="category"><%= params[:category].capitalize %></span>			
+		   <span class="topic"><%= params[:topic].humanize %></span> <span class="category"><%= params[:category].humanize %></span>			
 		</h2>
 		<% content.each do |k,v|  %>
 			<div class="listitem"><div class="content">

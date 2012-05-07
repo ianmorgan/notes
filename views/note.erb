@@ -4,7 +4,7 @@
 <div id="content">
 <div id="note">
 	<h1>
-		<%= content[:title] %> 		
+		<%= content[:title].humanize %> 		
 	</h1>
 	<p>
 		<%= markdown2(content[:content]) %>

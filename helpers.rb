@@ -1,12 +1,9 @@
-#require 'redcarpet'
-#require 'albino'
+
 module NotesHelpers
   
   class HTMLwithAlbino < Redcarpet::Render::HTML
     def block_code(code, language)
       if language 
-     #  puts "#{language} = #{code}"
-      #Albino.colorize(code, language)
       Pygments.highlight(code, :lexer => language)
     else
       code
@@ -14,21 +11,15 @@ module NotesHelpers
     end
   end
   
-  def foo(name) "#{name}foo" 
-  end
-  
+  #
+  # Uses customized version (github) of markdown 
+  # with syntax highlighting enabled 
+  #
   def markdown2(text)
     options = {:hard_wrap => true, :filter_html => true, :autolink => true, :no_intraemphasis => true, :fenced_code_blocks => true, :gh_blockcode => true}
     Redcarpet::Markdown.new(HTMLwithAlbino.new(:hard_wrap=>true),options).render(text)
   end
   
-#  def syntax_highlighter(html)
-#    doc = Nokogiri::HTML(html)
-#    doc.search("//pre[@lang]").each do |pre|
-#      pre.replace Albino.colorize(pre.text.rstrip, pre[:lang])
-#    end
-#    doc.to_s
-#  end
     
   #
   # Builds a link to a given note
@@ -41,7 +32,7 @@ module NotesHelpers
   # Builds a link to a given topic and category
   #
   def category_link(params)
-    "<a href=\"/notes/#{params[:topic]}/#{params[:category]}\">#{params[:topic].capitalize} #{params[:category].capitalize}</a>"
+    "<a href=\"/notes/#{params[:topic]}/#{params[:category]}\">#{params[:topic].humanize}, #{params[:category].humanize}</a>"
   end  
   
   
