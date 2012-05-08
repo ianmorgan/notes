@@ -16,8 +16,8 @@ module NotesHelpers
   # with syntax highlighting enabled 
   #
   def markdown2(text)
-    options = {:hard_wrap => true, :filter_html => true, :autolink => true, :no_intraemphasis => true, :fenced_code_blocks => true, :gh_blockcode => true}
-    Redcarpet::Markdown.new(HTMLwithAlbino.new(:hard_wrap=>true),options).render(text)
+    options = {:hard_wrap => false, :filter_html => true, :autolink => true, :no_intraemphasis => true, :fenced_code_blocks => true, :gh_blockcode => true}
+    Redcarpet::Markdown.new(HTMLwithAlbino.new(:hard_wrap=>false),options).render(text)
   end
   
     

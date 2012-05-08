@@ -36,30 +36,14 @@ or data structure.
 
 What is a type system for? 
 -------------------------- 
-A number of purposes. They add clarity and allow the compiler to verify some of the program logic. They
-also allow the compiler to optimise storage and access. In early languages they were important as
-computing power was so just limited it was essential to verify and optimise as much as possible
-upfront. In more modern languages (e.g. Java) the type information lives on as runtime metadata,
-allowing for more dyanamic applications. And they provide the information to power modern IDEs.
+A number of purposes. They add clarity and allow the compiler to verify some of the program logic. The also allow the compiler to optimise storage and access. In early languages they were important as computing power was so just limited it was essential to verify and optimise as much as possible upfront. In more modern languages (e.g. Java) the type information lives on as runtime metadata, allowing for more dyanamic applications. And they provide the information to power modern IDEs.
 
 Why do different programming languages have different kinds of type systems?
 ----------------------------------------------------------------------------
-This could be an essay in it own right. Essentially any type system is a trade off between early
-verification, structured code and performance versus flexibility and expressiveness. And once you bring
-OO into the mix, there are a whole host of OO "purity" concerns such as multiple inheritance that
-significantly increase the complexity of the type system.
+This could be an essay in it own right. Essentially any type system is a trade off between early verification, structured code and performance versus flexibility and expressiveness. And once you bring OO into the mix, there are a whole host of OO "purity" concerns such as multiple inheritance that significantly increase the complexity of the type system.
 
 How can you use a type system to help you program?
 --------------------------------------------------
-Appreciate the strengths and weaknesses of the type system of the language and code to its strengths.
-Accept that any type system only works within the language, and stops working once you get to XML, SQL
-etc. All those fancy typesafe mapping layers that J2EE loves are ultimately just shifting the origin of
-the stacktrace when things go wrong (_personal scars here, certainly hit the limits of the Java type
-system on my last project_). Beware that type systems can create a silo mentality whereby the same
-common concepts get expressed differently (accountNumber, accntNum, accNo, ... ). I sometimes feel
-there is a strange circularity here: strong type systems are good at catching all those minor
-mismatches but on larger projects lead to ways of working that generate many of these minor mismatches.
-And finally, consider a language and type system that suits the problem domain. For example, Ruby and
-Groovy with their very dynamic nature and "duck" typing can be excellent at web application but not
+Appreciate the strengths and weaknesses of the type system of the language and code to its strengths. Accept that any type system only works within the language, and stops working once you get to XML, SQL etc. All those fancy typesafe mapping layers that J2EE loves are ultimately just shifting the origin of the stacktrace when things go wrong (_personal scars here, certainly hit the limits of the Java type system on my last project_). Beware that type systems can create a silo mentality whereby the same common concepts get expressed differently (accountNumber, accntNum, accNo, ... ). I sometimes feel there is a strange circularity here: strong type systems are good at catching all those minor mismatches but on larger projects lead to ways of working that generate many of these minor mismatches. And finally, consider a language and type system that suits the problem domain. For example, Ruby and Groovy with their very dynamic nature and "duck" typing can be excellent at web application but not
 heavy weight back end processing.
 
