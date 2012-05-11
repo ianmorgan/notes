@@ -1,7 +1,7 @@
 
 module NotesHelpers
   
-  class HTMLwithAlbino < Redcarpet::Render::HTML
+  class HTMLwithHighlighting < Redcarpet::Render::HTML
     def block_code(code, language)
       if language 
       Pygments.highlight(code, :lexer => language)
@@ -17,7 +17,7 @@ module NotesHelpers
   #
   def markdown2(text)
     options = {:hard_wrap => false, :filter_html => true, :autolink => true, :no_intraemphasis => true, :fenced_code_blocks => true, :gh_blockcode => true}
-    Redcarpet::Markdown.new(HTMLwithAlbino.new(:hard_wrap=>false),options).render(text)
+    Redcarpet::Markdown.new(HTMLwithHighlighting.new(:hard_wrap=>false),options).render(text)
   end
   
     

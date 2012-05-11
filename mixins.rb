@@ -6,7 +6,7 @@ class String
     #
     def shortened_html(len = 100)
       stripped = self.gsub(/<\/?[^>]*>/, "")
-      if stripped.length < len -4 
+      if stripped.length < len -3 
         stripped
       else
         stripped[0..(len-4)] + "..."

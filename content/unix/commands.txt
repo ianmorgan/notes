@@ -30,24 +30,29 @@ Some useful options
 	<i>In fact ! can be used with any unix command to re-run last invocation</i>
 
 
-* 	Files modified less than one day ago:
+* 	Modified less than one day ago:
 
 	`find . -mtime -1`
 	
 
-*	Find by permission:
+*	By permission:
 
 	`find . -perm 777 –print`
 	
 	The above will find all executable files under the current directory.
 
-*	Case insensitive search
+*	Case insensitive
 
 	`find . –iname "foo"`
 	
 *	Finding text in files
 
-	`find . –iname "lic*.txt" –print | xargs grep “Apache License” 
+	`find . –iname "lic*.txt" –print | xargs grep “Apache License”`
+	
+	or
+	
+	`find . iname "lic*.txt" -exec grep -H "Apache License" '{}' \; -print`
+	
 	
 *	Limiting depth
 
