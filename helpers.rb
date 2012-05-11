@@ -35,7 +35,9 @@ module NotesHelpers
     "<a href=\"/notes/#{params[:topic]}/#{params[:category]}\">#{params[:topic].humanize}, #{params[:category].humanize}</a>"
   end  
   
-  
+  #
+  #
+  #
   def load_content (file_name)
     results = Hash.new
     file = File.new(file_name, "r")

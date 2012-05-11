@@ -7,12 +7,6 @@ Basic syntax:
 
   `ln -s {target-filename} {symbolic-filename}`
 
-> this is 
-> a 
-> block quoye
-
-1. a 
-2. list
   
 :links 
 http://linux.about.com/
@@ -21,9 +15,42 @@ http://linux.about.com/
 ::find
 find - The find link command.
 
-Use the find command to: 
-        goes
-        here  
+Use the find command to search for files or directories.
 
-:links 
-www.example.com
+Basic syntax:
+  `find . -name "*.txt" `
+
+Some useful options
+
+
+* 	Running the last executed find
+
+	`!find`
+
+	<i>In fact ! can be used with any unix command to re-run last invocation</i>
+
+
+* 	Files modified less than one day ago:
+
+	`find . -mtime -1`
+	
+
+*	Find by permission:
+
+	`find . -perm 777 –print`
+	
+	The above will find all executable files under the current directory.
+
+*	Case insensitive search
+
+	`find . –iname "foo"`
+	
+*	Finding text in files
+
+	`find . –iname "lic*.txt" –print | xargs grep “Apache License” 
+	
+*	Limiting depth
+
+	`find . -maxdepth 2 -name "*.txt"`
+    
+
