@@ -133,3 +133,20 @@ Using an Executor to run threads
 
 Notes to be completed. [See java tutorial](http://docs.oracle.com/javase/tutorial/essential/concurrency/executors.html). 
 
+::The Actor model
+The Actor model is a message based approach for separating concurrent processes. 
+
+It is the basic model
+used in Scala, which is used in this example. Its quite simple. Assume an Traffic Controller at an airport is communicating with an Aircraft.
+
+The Controller is an actor that is passed an instance of the Aircraft. The Controller override the `act()` method. This is basically a while loop that is wait for messages via the `receive` code block. It 
+will stay in this loop until is decides to exit, perhaps in response to a particular message. The Aircraft 
+is similar, it extends `Actor` , implements the `act` and simply waits to receive events 
+
+ 
+
+A fuller example is at http://www.scala-lang.org/node/242
+
+
+ 
+
