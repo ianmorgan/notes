@@ -77,11 +77,13 @@ cron - schedule background tasks
 
 	`minute(0-59) hour(0-23) day_of_month(1-31) month(1-12) day_of_week(0-7) /path/script.sh`
 	
-	Field values can be replaced with a star (*). Multiple values can be specified with commas. Some examples
+	Field values can be replaced with a star (*). Multiple values can be specified with commas. Some examples:
 	
 	`0 10 * * * /path/script.sh`  - run at 10AM every day
 	
 	`0 0 1,8,15,22 * * /path/script.sh`  - run at midnight every 7th day 
+	
+	Names can be used (e.g. March) for month and day of week. In day of week, Sunday can be 0 or 7.
 	
 	Save the editor. Thats it.
 	
