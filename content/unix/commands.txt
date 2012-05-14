@@ -59,3 +59,35 @@ Some useful options
 	`find . -maxdepth 2 -name "*.txt"`
     
 
+::cron
+cron - schedule background tasks
+
+## Quick steps for setting up a cron job
+
+1.	Open a root shell and type the following:
+
+	`crontab -u root -e`  (must be root - use sudo if necessary)
+	
+	This should open a VI like editor
+	
+2.	Add a new cron tab line, format is
+
+	`minute(0-59) hour(0-23) day_of_month(1-31) month(1-12) day_of_week(0-7) /path/script.sh`
+	
+	Field values can be replaced with a star (*). Some exmaples
+	
+	`0 10 * * * /path/script.sh`  - run at 10AM every day
+	
+	
+	
+
+
+
+:links
+http://www.sophos.com/en-us/support/knowledgebase/12176.aspx
+http://www.adminschoice.com/crontab-quick-reference
+
+
+
+
+
