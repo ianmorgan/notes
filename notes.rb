@@ -55,3 +55,8 @@ get '/assets/css/:name.css' do |name|
   content_type :css
   scss "scss/#{name}".to_sym, :layout => false
 end
+
+
+not_found do
+  erb :notfound
+end
