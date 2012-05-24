@@ -1,4 +1,27 @@
-::todo
-Write some notes 
+::about
+About Sinatra 
 
-Edit the text file to add more notes
+Sinatra is a lightweight DSL type framework for writing web apps.  
+
+[See web site](http://www.sinatrarb.com/)
+
+
+::using_bourbon 
+Using Bourbon
+
+[Bourbon](https://github.com/thoughtbot/bourbon) is little difficult to integrate with Sinatra. There are 
+some good notes at (http://koffeinfrei.heroku.com/2012/03/24/sinatra-with-bourbon). 
+
+I found I needed to tweak this a little. My code block is 
+
+``` ruby
+get '/assets/css/:name.css' do |name|
+  require './views/scss/bourbon/lib/bourbon.rb'
+  content_type :css
+  scss "scss/#{name}".to_sym, :layout => false
+end
+```
+
+
+
+ 
