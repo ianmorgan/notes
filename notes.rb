@@ -41,12 +41,20 @@ end
 
 get '/notes/:topic/:category' do
   content = load_content("content/#{params[:topic]}/#{params[:category]}.txt")
-  erb :notes, :locals => { :content => content }
+  if content.length > 0 
+    erb :notes, :locals => { :content => content }
+  else
+    status 404
+  end
 end
 
 get '/notes/:topic/:category/:note' do
   content = load_content("content/#{params[:topic]}/#{params[:category]}.txt")
-  erb :note, :locals => { :content => content[params[:note].to_sym] }
+  if content[params[:note].to_sym]
+    erb :note, :locals => { :content => content[params[:note].to_sym] }
+  else 
+    status 404
+  end
 end
 
 #see http://koffeinfrei.heroku.com/2012/03/24/sinatra-with-bourbon

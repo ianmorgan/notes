@@ -35,21 +35,27 @@ module NotesHelpers
     "<a href=\"/notes/#{params[:topic]}/#{params[:category]}\">#{params[:topic].humanize}, #{params[:category].humanize}</a>"
   end  
   
-  #
-  #
+  # 
+  # Loads the content in the given file. Returns a hash with the 
+  # content. If there is a problem an empty hash is returned 
   #
   def load_content (file_name)
     results = Hash.new
-    file = File.new(file_name, "r")
     
-    # parse 1 - break out into keys and raw content blocks
-    while (line = file.gets)
-      if line.start_with?('::')
-        content = []
-        results[line.sub('::','').strip.to_sym] = content
-      else 
-        content << line
+    begin
+      file = File.new(file_name, "r")
+    
+      # parse 1 - break out into keys and raw content blocks
+      while (line = file.gets)
+        if line.start_with?('::')
+          content = []
+          results[line.sub('::','').strip.to_sym] = content
+        else 
+          content << line
+        end
       end
+    rescue Errno::ENOENT 
+      # 
     end
     
     # parse 2 - now decode the content block 
