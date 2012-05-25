@@ -1,0 +1,9 @@
+::monads
+Monads 
+
+A way for functions to have side effects
+
+  
+:links 
+http://fwaris.wordpress.com/2011/07/30/understanding-monads/
+http://www.infoq.com/presentations/Why-is-a-Monad-Like-a-Writing-Desk
