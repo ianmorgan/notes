@@ -1,0 +1,4 @@
+::todo
+This will be about functional programming patterns
+
+Content to be provided
