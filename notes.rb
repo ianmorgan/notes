@@ -40,6 +40,7 @@ get '/layout.css' do
 end
 
 get '/notes/:topic/:category' do
+  puts params
   content = load_content("content/#{params[:topic]}/#{params[:category]}.txt")
   if content.length > 0 
     erb :notes, :locals => { :content => content }

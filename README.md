@@ -1,18 +1,4 @@
 A simple web site to keep all 
-that technical, snippets and  links I keep forgetting
+that technical, snippets and  links I keep forgetting.
 
-```
-this is some  
-code
-```
-
-``` java
-class Test{
-	void foo(){;}
-	
-	void bar(){
-		// does nothing !
-		;
-	}
-}
-```
+Use sinatra and markdown - very simple
