@@ -31,3 +31,6 @@ topics:
     - Theory
     - Patterns
       
+  Hadoop:
+    - Config 
+    - Examples

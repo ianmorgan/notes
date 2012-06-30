@@ -1,0 +1,37 @@
+::config
+Hadoop Config  
+
+Some notes 
+
+1. Download latest stable version - I was using 1.0.3 
+
+2. untar - tar xvfz hadoop-<version>.tar.gz
+
+3. Update JAVA_HOME in conf/hadoop-env.sh 
+
+  Mac OSX	
+ 
+/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home	
+ 
+ Linux user can run	“which java”	
+  
+4) Create an RSA key to	be used by hadoop when ssh’ing to localhost:	
+  
+  ssh-keygen -t rsa -P "" cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+5) Format hadoop file system 
+
+  ./bin/hadoop namenode -format
+
+6) Start 
+  ./bin/start-all.sh 
+
+7) Check the health check page 
+ http://localhost:50070/dfshealth.jsp
+
+7) Copy a test file
+  ./bin/hadoop dfs -mkdir /testing
+  ./bin/hadoop dfs -put <path to local file> /data
+  ./bin/hadoop dfs -ls /data 
+
+
