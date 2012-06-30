@@ -1,4 +1,64 @@
 ::todo
 Write some notes 
 
-Edit the text file to add more notes
+	
+  As	
+  an	
+   example,	
+  let’s	
+  run	
+  WordCount.jar	
+  to	
+  count	
+  the	
+  number	
+  of	
+  times	
+  each	
+  word	
+   appears	
+  in	
+  a	
+  text	
+  file.	
+  Put	
+  a	
+  sample	
+  text	
+  file	
+  on	
+  hdfs	
+  under	
+  ‘input’	
+  directory.	
+   Download	
+  the	
+  jar	
+  file	
+  from:	
+  	
+   http://www.stanford.edu/class/cs246/cs246-­‐11-­‐mmds/hw_files/WordCount.jar	
+   	
+  
+and	
+  run	
+  the	
+  WordCount	
+  map-­‐reduce	
+  job:	
+  
+	
+  
+./bin/hadoop dfs –mkdir input ./bin/hadoop dfs –put local_machine_path/sample.txt input/sample.txt ./bin/hadoop jar ~/path_to_jar_file/WordCount.jar WordCount input output
+	
+   The	
+  result	
+  will	
+  be	
+  saved	
+  on	
+  ‘output’	
+  directory	
+  on	
+  hdfs.	
+  
