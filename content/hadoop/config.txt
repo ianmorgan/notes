@@ -1,5 +1,5 @@
-::config
-Hadoop Config  
+::hadoop
+Hadoop Install Config  
 
 Some notes 
 
@@ -33,5 +33,14 @@ Some notes
   ./bin/hadoop dfs -mkdir /testing
   ./bin/hadoop dfs -put <path to local file> /data
   ./bin/hadoop dfs -ls /data 
+
+
+::pig
+Pig Install and Config
+Note - tested with v 0.10.0
+1) Download tar from Apache Pig web site 
+  untar, e.g ```tar xvf pig-x.y.z tar.gz```
+
+
 
 

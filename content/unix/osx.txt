@@ -1,4 +1,29 @@
-::todo
-Write some notes 
+::profile
+Changing profile and shell  
 
-Edit the text file to add more notes
+First place to look is the profile file `~/.profile`
+Not fully sure of rules, but basically this get loaded first and is not just for shell 
+
+After that try your local bash startup `~/.bashrc`  or .bash_profile 
+
+NOTE TO SELF!!! - I'm using oh-my-zsh -- and its all in `~/.zshrc`
+
+::running_apps
+Running applications 
+
+To start from the command line 
+
+```
+> open -a "preview"
+```
+
+or using  full path 
+
+```
+> open /Applications/Netscape/netscape.app
+```
+
+See also: 
+http://hintsforums.macworld.com/archive/index.php/t-2597.html
+http://stackoverflow.com/questions/1308755/launch-an-app-on-os-x-with-command-line
+http://www.hccp.org/command-line-os-x.html

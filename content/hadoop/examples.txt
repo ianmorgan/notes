@@ -61,4 +61,23 @@ and
   directory	
   on	
   hdfs.	
+
+
+Running word count
+------------------
+
+updlaod file 
+
+run job 
+
+./bin/hadoop jar hadoop-examples-1.0.3.jar wordcount /data  /results
+
+bin/hadoop dfs -copyFromLocal <local-dir> <hdfs-dir> 
+
+::1_million_songs
+An example of using pig with the 1 million songs challange on Kaggle
+See https://github.com/andrewclegg/pig-data-mining-talk for original talk
+
+
+
   
