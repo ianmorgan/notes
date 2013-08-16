@@ -2,12 +2,24 @@
 	<title>
 		This is the index page
 	</title>
-	<link type ="text/css" rel="stylesheet" href="/assets/css/layout.css">
+	<!--<link type ="text/css" rel="stylesheet" href="/assets/css/layout.css">-->
 	<link type ="text/css" rel="stylesheet" href="/pygments.css">
+	
+	<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
+	<link href="/css/content.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div id="body">
-		<div id="header"><h1><span>Technical</span> Notes</h1></div>
+	<div id="body" class="container">
+		<!--<div id="header"><h1><span>Technical</span> Notes</h1></div> -->
+			<div class="row">
+				<div class="span12">
+					<div id="header">
+						<h1><span>Technical</span> Notes</h1>
+					</div>
+				</div>	
+			</div>
+		
 		<%= yield %>
 	</div>
 </body>
