@@ -6,6 +6,10 @@ require 'redcarpet'
 require 'pygments.rb'
 require 'rubypython'
 
+require 'json'
+require "net/http"
+require "uri"
+
 require File.join(File.dirname(__FILE__), 'helpers')
 require File.join(File.dirname(__FILE__), 'mixins')
 
@@ -17,6 +21,9 @@ get '/' do
   
   # convert to 2 D array 
   keys = topics.each_key.collect{|k|k}.sort
+  #puts topics
+  
+  #puts keys
   grid_keys = []
   (0..keys.size-1).each do |index|
     if (index % 2 == 0)
@@ -29,6 +36,20 @@ get '/' do
   end
   
   erb :index, :locals => {:grid_keys=> grid_keys , :topics => topics }
+end
+
+get "/wibble" do 
+  uri = URI.parse("http://localhost:4401/topics")
+
+  http = Net::HTTP.new(uri.host, uri.port)
+  request = Net::HTTP::Get.new(uri.request_uri)
+
+  response = http.request(request)
+  
+  json = JSON.parse(response.body)
+  
+  json.keys.join(',')
+  
 end
 
 get '/about' do 
