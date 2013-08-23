@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'sinatra'
+require 'sinatra/base'
 require 'erb'
 require 'yaml'
 
@@ -11,6 +11,7 @@ require "uri"
 require File.join(File.dirname(__FILE__), 'modules/helpers')
 require File.join(File.dirname(__FILE__), 'modules/mixins')
 
+class NotesWebApp < Sinatra::Base
 helpers NotesHelpers
 
 
@@ -109,4 +110,6 @@ end
 
 not_found do
   erb :notfound
+end
+
 end
