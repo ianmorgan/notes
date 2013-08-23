@@ -2,19 +2,17 @@ require 'rubygems'
 require 'sinatra'
 require 'erb'
 require 'yaml'
-require 'redcarpet'
-require 'pygments.rb'
-require 'rubypython'
+
 
 require 'json'
 require "net/http"
 require "uri"
 
-require File.join(File.dirname(__FILE__), 'helpers')
-require File.join(File.dirname(__FILE__), 'mixins')
+require File.join(File.dirname(__FILE__), 'modules/helpers')
+require File.join(File.dirname(__FILE__), 'modules/mixins')
 
 helpers NotesHelpers
-RubyPython.start()
+
 
 get '/' do
   topics = YAML::load_file('content/topics.yml')['topics']
@@ -53,36 +51,24 @@ get "/wibble" do
 end
 
 get '/blibble' do
-  
   markdown = <<-eos
-      Demo
-      ====
+Demo
+====
 
-      This is a demo markdown page!
+This is a demo markdown page with syntax highlighting!
 
-      ``` java
-      public class HelloThread extends Thread {
-      	@Override
-      	public void run() {
-      		System.out.println("Hello from a thread!");
-      	}
+``` java
+public class HelloThread extends Thread {
+  	@Override
+    public void run() {
+      System.out.println("Hello from a thread!");
       }
-    eos
+    }
     
-    uri = URI.parse("http://localhost:4403")
-    http = Net::HTTP.new(uri.host, uri.port)
+eos
     
-    request = Net::HTTP::Post.new("/markdown/to/html")
-    request.set_form_data ({"payload" => markdown})
-    #request.body = markdown
- 
-    response = http.request(request)
-    
-    puts response.body
-    html = response.body
-    puts html
+    html = post_to_url(markdown,"http://localhost:4403","/markdown/to/html")
     html
-    
 end  
 
 

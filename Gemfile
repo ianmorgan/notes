@@ -7,5 +7,5 @@ gem 'bourbon', '1.4.0'
 gem 'redcarpet'
 # gem 'albino'
 # gem 'nokogiri'
-gem 'pygments.rb', '0.2.12'
-gem 'rubypython', '0.5.3'    # only for heroku
+# gem 'pygments.rb', '0.2.12'
+# gem 'rubypython', '0.5.3'    # only for heroku

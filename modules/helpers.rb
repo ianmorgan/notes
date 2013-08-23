@@ -1,25 +1,25 @@
 
 module NotesHelpers
   
-  class HTMLwithHighlighting < Redcarpet::Render::HTML
-    def block_code(code, language)
-      if language 
-      Pygments.highlight(code, :lexer => language)
-    else
-      code
-    end
-    end
-  end
-  
   #
-  # Uses customized version (github) of markdown 
-  # with syntax highlighting enabled 
+  # post data
   #
-  def markdown2(text)
-    options = {:hard_wrap => false, :filter_html => true, :autolink => true, :no_intraemphasis => true, :fenced_code_blocks => true, :gh_blockcode => true}
-    Redcarpet::Markdown.new(HTMLwithHighlighting.new(:hard_wrap=>false),options).render(text)
+  def post_to_url(data,host,endpoint)
+    uri = URI.parse(host)
+    http = Net::HTTP.new(uri.host, uri.port)
+
+    request = Net::HTTP::Post.new(endpoint)
+    request.set_form_data ({"payload" => data})
+
+    response = http.request(request)
+
+      # TODO - check http status code 
+   
+    result = response.body
+    puts result
+    result
+    
   end
-  
     
   #
   # Builds a link to a given note
