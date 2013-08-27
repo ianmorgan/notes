@@ -8,14 +8,18 @@ require 'json'
 require "net/http"
 require "uri"
 
+require File.join(File.dirname(__FILE__), 'modules/config')
 require File.join(File.dirname(__FILE__), 'modules/helpers')
 require File.join(File.dirname(__FILE__), 'modules/mixins')
 
 class NotesWebApp < Sinatra::Base
 helpers NotesHelpers
+helpers NotesConfig
 
 
 get '/' do
+  
+  puts content_delivery_service_address
   topics = YAML::load_file('content/topics.yml')['topics']
   
   # convert to 2 D array 
@@ -67,7 +71,8 @@ public class HelloThread extends Thread {
     }
     
 eos
-    
+    puts ENV.class
+    puts request.public_methods
     html = post_to_url(markdown,"http://localhost:4403","/markdown/to/html")
     html
 end  
