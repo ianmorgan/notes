@@ -49,17 +49,7 @@ get '/home' do
 end
 
 get "/wibble" do 
-  #addr = content_delivery_service_address
-  #puts addr
-  json = get_json2(content_delivery_service_address(), 'topics')
-  #uri = URI.parse("http://localhost:4401/topics")
-
-  #http = Net::HTTP.new(uri.host, uri.port)
-  #request = Net::HTTP::Get.new(uri.request_uri)
-
-  #response = http.request(request)
-  
-  #json = JSON.parse(response.body)
+  json = get_json(content_delivery_service_address(), 'topics')
   
   json.keys.join(',')
   

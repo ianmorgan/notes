@@ -23,7 +23,7 @@ module NotesHelpers
   #
   # call an endpoint that returns JSON data
   #
-  def get_json2(host,endpoint)
+  def get_json(host,endpoint)
     uri = URI.parse("http://#{host}/#{endpoint}")
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Get.new(uri.request_uri)
