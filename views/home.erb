@@ -1,0 +1,44 @@
+<div class="row">
+	<div class="span12">
+		<div id="menu"> 
+			<ul>
+				<li class="active"><a href="/">Home page</a></li>
+				<li><a class="right" href="/about">About</a> </li>					
+			 </ul>
+		</div>
+	</div>	
+</div>
+
+
+<div class="row">
+
+	<div class="span8">
+		<div id="content">
+			
+			<div id="about">
+				<h2>About this site</h2>
+				<p>
+				This is my personal site for keeping track 
+				of all those little snippets of information I keep forgetting
+				</p>
+
+				<p>
+			    Everything is on <a href="http://github.com/ianmorgan/notes">Github</a>
+				</p>
+
+			
+			</div>
+			<% topics.each do |topic| %>
+				<div class="row topics">
+				
+						<div class="span3">
+							<h3 class="topic"><%= topic  %> </h3>
+						
+						</div>
+					
+				</div>
+			<% end %>		
+		</div>
+
+</div>
+</div>

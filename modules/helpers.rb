@@ -13,12 +13,22 @@ module NotesHelpers
 
     response = http.request(request)
 
-      # TODO - check http status code 
+    # TODO - check http status code 
    
     result = response.body
-    puts result
+    # puts result
     result
-    
+  end
+  
+  #
+  # call an endpoint that returns JSON data
+  #
+  def get_json2(host,endpoint)
+    uri = URI.parse("http://#{host}/#{endpoint}")
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Get.new(uri.request_uri)
+    response = http.request(request)
+    JSON.parse(response.body)
   end
     
   #

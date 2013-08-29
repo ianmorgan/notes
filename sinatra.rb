@@ -41,15 +41,25 @@ get '/' do
   erb :index, :locals => {:grid_keys=> grid_keys , :topics => topics }
 end
 
+get '/home' do
+  json = get_json2(content_delivery_service_address(), 'topics')
+  topics = json.keys
+  puts topics
+  erb :home, :locals => {:topics => topics}
+end
+
 get "/wibble" do 
-  uri = URI.parse("http://localhost:4401/topics")
+  #addr = content_delivery_service_address
+  #puts addr
+  json = get_json2(content_delivery_service_address(), 'topics')
+  #uri = URI.parse("http://localhost:4401/topics")
 
-  http = Net::HTTP.new(uri.host, uri.port)
-  request = Net::HTTP::Get.new(uri.request_uri)
+  #http = Net::HTTP.new(uri.host, uri.port)
+  #request = Net::HTTP::Get.new(uri.request_uri)
 
-  response = http.request(request)
+  #response = http.request(request)
   
-  json = JSON.parse(response.body)
+  #json = JSON.parse(response.body)
   
   json.keys.join(',')
   
